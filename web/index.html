@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMC Hybrid Briefs — on-device + cloud AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>CMC Hybrid Briefs</h1>
+    <p class="tagline">Plain-language crypto briefs from live CoinMarketCap data.
+      The verdict is written by generative AI through
+      <strong>Firebase AI Logic</strong> — on-device (Gemini Nano 4) when it can,
+      cloud (Gemini) when it must. Every number comes from the brief, never from the model.</p>
+    <p id="firebase-status" class="status">Checking Firebase configuration…</p>
+  </header>
+
+  <section class="ask">
+    <label for="question">Ask a question</label>
+    <input id="question" type="text" placeholder='e.g. is BTC overheated right now' autocomplete="off">
+    <div class="chips">
+      <button data-q="brief BTC">BTC brief</button>
+      <button data-q="brief ETH">ETH brief</button>
+      <button data-q="brief SOL">SOL brief</button>
+      <button data-q="which top-20 coins had the biggest 7d inflows">Top 7d flows</button>
+      <button data-q="market overview">Market overview</button>
+    </div>
+    <fieldset>
+      <legend>How should the AI verdict run?</legend>
+      <label><input type="radio" name="feature" value="quick_verdict" checked>
+        Quick verdict — prefer on-device (Gemini Nano 4, cloud fallback)</label>
+      <label><input type="radio" name="feature" value="deep_brief">
+        Deep brief — prefer cloud (Gemini 2.5 Flash)</label>
+      <label><input type="checkbox" id="private">
+        Keep this question on-device only (never send it to the cloud)</label>
+    </fieldset>
+    <button id="ask-btn">Ask</button>
+    <p class="hint">Runs in Chrome (desktop) for on-device inference. On other browsers the
+      quick verdict falls back to the cloud model automatically.</p>
+  </section>
+
+  <section id="brief-section" hidden>
+    <h2>Brief — deterministic, from live CoinMarketCap data</h2>
+    <pre id="brief"></pre>
+    <pre id="evidence" class="evidence"></pre>
+  </section>
+
+  <section id="ai-section" hidden>
+    <h2>AI verdict — via Firebase AI Logic <span id="source-badge" class="badge"></span></h2>
+    <p id="ai-text"></p>
+    <p id="grounding-note" class="note"></p>
+    <details>
+      <summary>What was sent to the model (routing + grounded prompt)</summary>
+      <p id="routing"></p>
+      <pre id="prompt"></pre>
+    </details>
+  </section>
+
+  <section id="noconfig" hidden>
+    <h2>Firebase not configured yet</h2>
+    <p>The brief above is real data, but the AI verdict needs a Firebase project.
+      Copy <code>firebase-config.example.js</code> to <code>firebase-config.js</code>,
+      fill in your project values, and reload. The routing decision and the exact
+      prompt are shown above — that is everything the app would send to the model.
+      See the README for the setup steps.</p>
+  </section>
+
+  <footer>
+    <p>Data summary from CoinMarketCap, not investment advice. All AI inference
+      goes through Firebase AI Logic; this app calls no other model API.</p>
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

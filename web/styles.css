@@ -1,0 +1,29 @@
+body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #0b1220; color: #e8eef7; }
+main { max-width: 860px; margin: 0 auto; padding: 24px 20px 64px; }
+h1 { font-size: 28px; margin: 0 0 8px; }
+h2 { font-size: 19px; margin-top: 32px; }
+.tagline { color: #b9c6da; line-height: 1.55; }
+.status { padding: 10px 12px; border-radius: 8px; background: #16233c; color: #9fd0ff; }
+.status.ok { background: #0f2e1e; color: #7fe0a8; }
+.status.warn { background: #3a2a0e; color: #ffcf7d; }
+.ask input[type="text"] { width: 100%; box-sizing: border-box; padding: 12px; font-size: 16px;
+  border-radius: 8px; border: 1px solid #33415e; background: #101a2e; color: #fff; margin: 6px 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.chips button { padding: 7px 12px; border-radius: 999px; border: 1px solid #33415e;
+  background: #16233c; color: #cfe0ff; cursor: pointer; font-size: 14px; }
+fieldset { border: 1px solid #33415e; border-radius: 8px; padding: 12px 14px; margin: 0 0 14px; }
+fieldset label { display: block; margin: 6px 0; color: #cfe0ff; }
+#ask-btn { padding: 12px 28px; font-size: 16px; font-weight: 700; border: 0; border-radius: 8px;
+  background: #2f7bff; color: #fff; cursor: pointer; }
+#ask-btn:disabled { opacity: 0.55; cursor: wait; }
+.hint { color: #8a97ad; font-size: 13px; }
+pre { white-space: pre-wrap; word-wrap: break-word; background: #101a2e; border: 1px solid #22314e;
+  border-radius: 8px; padding: 14px; line-height: 1.55; font-size: 14px; }
+.evidence { color: #9fb4d0; font-size: 13px; }
+.badge { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: #1d4ed8; color: #fff;
+  vertical-align: middle; }
+.badge.on-device { background: #15803d; }
+.badge.in-cloud { background: #b45309; }
+.note { color: #ffcf7d; }
+footer { margin-top: 40px; color: #8a97ad; font-size: 13px; }
+code { background: #16233c; padding: 2px 6px; border-radius: 4px; }
